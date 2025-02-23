@@ -32,7 +32,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     launchOptions: {
       // 1
-      args: ["--start-maximized"],
+      args: ["--start-maximized"], // Start browser maximized
     },
     trace: 'on-first-retry',
   },
@@ -42,8 +42,14 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { 
-        // ...devices['Desktop Chrome'] 
-        viewport: null
+        // ...devices['Desktop Chrome'] ,
+        viewport: null, // default viewport size for the project
+        // viewport: { width: 2560, height: 1600 }, // Custom viewport size
+        // deviceScaleFactor: 1.5 // Explicitly set the deviceScaleFactor
+        // viewport:{width: 1707, height: 1067} //custom viewport size for the project using https://whatismyviewport.com/  Screen Size:
+        screenshot:"on",
+        video: "on",
+        trace: "on",
       },
     },
 

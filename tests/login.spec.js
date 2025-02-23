@@ -1,12 +1,20 @@
-import { test, expect } from '@playwright/test';
+import { test, expect ,chromium } from '@playwright/test';
 
 // To run only this file, use the following command:
 // npx playwright test tests/login.spec.js              // Headless mode
 // npx playwright test ./tests/login.spec.js --headed   // Headed mode
 
+test.use({viewport: { width: 848, height: 931 }});// Custom viewport size  
 test("Valid Login", async ({ page }) => {
-    // Maximize the browser window by setting the viewport size
-    await page.setViewportSize({ width: 1920, height: 1080 });
+    // const browser = await chromium.launch({
+    //     headless: false,
+    //     args: ["--start-maximized"]
+    //   });
+    //   const context = await browser.newContext({
+    //     viewport: { width: 1707, height: 1067 },
+    //     deviceScaleFactor: 1.5 // Explicitly set the deviceScaleFactor
+    //   });
+    //   page = await context.newPage();
 
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'); // Go to the login page
 
