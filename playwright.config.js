@@ -34,6 +34,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     launchOptions: {
       // 1
+      headless: false, // Add this line to run tests in headed mode
       args: ["--start-maximized"], // Start browser maximized
     },
     trace: 'on-first-retry',

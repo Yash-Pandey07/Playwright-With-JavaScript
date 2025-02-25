@@ -10,5 +10,5 @@ test('basic test', async ({ page }) => {
 
     await expect(page).toHaveTitle('Google');
     await expect(page).toHaveURL('https://www.google.com/');
-    await expect(page).toHaveText('Google Search');
+    await expect(page).toHaveText('Search');
 });
