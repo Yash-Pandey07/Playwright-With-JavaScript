@@ -33,8 +33,7 @@ for(let i=0;i<allStateValues.length;i++){
     
     }
     await expect(ddStatus).toBeTruthy();      // check if the value is present in the dropdown
-
-
+    await page.waitForTimeout(3000);
     //selecting multiple values from dropdown
     await page.locator("#hobbies").selectOption(['Playing','Swimming']);
     await page.waitForTimeout(3000);
