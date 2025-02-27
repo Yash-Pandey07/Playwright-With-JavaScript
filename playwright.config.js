@@ -42,6 +42,7 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+    
     {
       name: 'chromium',
       use: { 
@@ -55,6 +56,7 @@ export default defineConfig({
         trace: "on",
       },
     },
+    
 
     // {
     //   name: 'firefox',
@@ -83,7 +85,11 @@ export default defineConfig({
     // },
     // {
     //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+    //   use: { 
+    //     // ...devices['Desktop Chrome'], 
+    //     viewport: null, 
+    //     channel: 'chrome' 
+    //   },
     // },
   ],
 
