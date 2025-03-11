@@ -13,11 +13,14 @@ test('Working with multiple windows' , async ({browser}) => {
 
     ])
 
-    await newPage.waitForLoadState();
+    // await newPage.waitForLoadState();
     // await newPage.locator('//input[@name="email"][1]').fill('default@email.com');
     await newPage.locator('//*[@id="«r2»"]').fill('default@email.com');
     
     await newPage.waitForTimeout(3000);
-
+    await newPage.close();
+    await page.locator("#email1").fill('admin@email.com');
+    
+    await page.waitForTimeout(3000);
 
 })
