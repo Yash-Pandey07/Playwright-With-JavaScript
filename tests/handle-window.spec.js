@@ -14,7 +14,9 @@ test('Working with multiple windows' , async ({browser}) => {
     ])
 
     await newPage.waitForLoadState();
-    await newPage.locator("((//input[@id='«r2»'])[1]").fill("default@email.com");
+    // await newPage.locator('//input[@name="email"][1]').fill('default@email.com');
+    await newPage.locator('//*[@id="«r2»"]').fill('default@email.com');
+    
     await newPage.waitForTimeout(3000);
 
 
