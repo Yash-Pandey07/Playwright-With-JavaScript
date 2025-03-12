@@ -32,4 +32,5 @@ test("Valid Login", async ({ page }) => {
     await page.getByText('Logout').click();
 
     await expect(page).toHaveURL(/login/);
+    
 });
