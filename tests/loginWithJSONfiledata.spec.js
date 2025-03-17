@@ -33,6 +33,7 @@ test.describe('Login with 3 users data with JSON file', () => {
                 await page.getByPlaceholder("Enter Email").type(user.username);
                 await page.getByPlaceholder("Enter Password").type(user.password);
                 await page.waitForTimeout(3000);
+                
             });
         });
     }
