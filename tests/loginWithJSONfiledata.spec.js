@@ -24,7 +24,9 @@ const data = JSON.parse(JSON.stringify(require("../testdata.json")));
 // });
 
 test.describe('Login with 3 users data with JSON file', () => {
+
     for(const user of data){
+        
         test.describe(`Login with ${user.username} data`, () => {
             
             test('Login to Application', async ({page}) => {

@@ -1,0 +1,10 @@
+Go to : https://www.npmjs.com/package/allure-playwright
+https://playwright.dev/docs/test-reporters
+
+follow the steps to install and run the same on cmd 
+//install
+1 npx playwright test --reporter=line,allure-playwright
+//generate report
+2 allure generate ./allure-results -o ./allure-report --clean
+//open report
+3 allure open ./allure-report

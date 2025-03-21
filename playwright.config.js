@@ -26,8 +26,8 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
-  reporter: "allure-playwright",
-  // reporter: [["line"], ["allure-playwright"]],
+  // reporter: "allure-playwright",
+  reporter: [["line"], ["allure-playwright"]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -36,10 +36,12 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     launchOptions: {
       // 1
-      headless: false, // Add this line to run tests in headed mode
+      headless: true, // Add this line to run tests in headed mode
       args: ["--start-maximized"], // Start browser maximized
     },
     trace: 'on-first-retry',
+    screenshot:"only-on-failure",
+    video: "on"
   },
 
   /* Configure projects for major browsers */
@@ -53,8 +55,8 @@ export default defineConfig({
         // viewport: { width: 2560, height: 1600 }, // Custom viewport size
         // deviceScaleFactor: 1.5 // Explicitly set the deviceScaleFactor
         // viewport:{width: 1707, height: 1067} //custom viewport size for the project using https://whatismyviewport.com/  Screen Size:
-        screenshot:"on",
-        video: "on",
+        // screenshot:"only-on-failure",
+        // video: "on",
         trace: "on",
       },
     },

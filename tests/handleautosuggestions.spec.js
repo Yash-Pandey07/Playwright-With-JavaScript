@@ -15,7 +15,7 @@ test('Handle autosuggestions using keyboard' , async ({page}) => {
 
 })
 
-test.only('Handle autosuggestions using Loops' , async ({page}) => {
+test('Handle autosuggestions using Loops' , async ({page}) => {     //test.only() to run only this test case
 
     await page.goto("https://google.com/");
  
