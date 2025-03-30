@@ -1,7 +1,7 @@
 import {test , expect} from '@playwright/test';
 import exp from 'constants';
 
-test.skip('Handle conform box' , async ({page}) => {
+test('Handle conform box' , async ({page}) => {
 
     await page.goto("https://the-internet.herokuapp.com/javascript_alerts");
 
