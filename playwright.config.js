@@ -1,6 +1,5 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
-
+import { defineConfig, devices } from "@playwright/test";
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -13,21 +12,26 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  // retries:2,     // Retry tests up to 2 times 
+  // retries:2,     // Retry tests up to 2 times
   // --retries=3, // Retry tests up to 2 times from cmd line
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   // reporter: 'html',
   // reporter: "allure-playwright",
-  reporter: [['html'],["line"], ["allure-playwright"]],
+  // reporter: [["html"], ["line"], ["allure-playwright"]],
+  reporter: [
+    ["html", { outputFolder: "reports/html-report", open: "always" }], // HTML Reporter with configuration
+    ["line"], // Line Reporter
+    ["allure-playwright"], // Allure Reporter
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -39,17 +43,16 @@ export default defineConfig({
       headless: false, // Add this line to run tests in headed mode
       args: ["--start-maximized"], // Start browser maximized
     },
-    trace: 'on-first-retry',
-    screenshot:"only-on-failure",
-    video: "on"
+    trace: "on-first-retry",
+    screenshot: "only-on-failure",
+    video: "on",
   },
 
   /* Configure projects for major browsers */
   projects: [
-    
     {
-      name: 'chromium',
-      use: { 
+      name: "chromium",
+      use: {
         // ...devices['Desktop Chrome'] ,
         viewport: null, // default viewport size for the project
         // viewport: { width: 2560, height: 1600 }, // Custom viewport size
@@ -60,12 +63,11 @@ export default defineConfig({
         trace: "on",
       },
     },
-    
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: "firefox",
+    //   use: { ...devices["Desktop Firefox"] },
+    // },
 
     // {
     //   name: 'webkit',
@@ -89,10 +91,10 @@ export default defineConfig({
     // },
     // {
     //   name: 'Google Chrome',
-    //   use: { 
-    //     // ...devices['Desktop Chrome'], 
-    //     viewport: null, 
-    //     channel: 'chrome' 
+    //   use: {
+    //     // ...devices['Desktop Chrome'],
+    //     viewport: null,
+    //     channel: 'chrome'
     //   },
     // },
   ],
@@ -104,4 +106,3 @@ export default defineConfig({
   //   reuseExistingServer: !process.env.CI,
   // },
 });
-

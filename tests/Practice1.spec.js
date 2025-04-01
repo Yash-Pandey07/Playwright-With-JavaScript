@@ -1,20 +1,23 @@
-const { chromium } = require('playwright');
+const { test } = require('@playwright/test');
 
-(async () => {
-  // Launch a new browser instance
-  const browser = await chromium.launch({ headless: false });
+test('Practice test - Navigate Google and go back', async ({ page }) => {
+  // Navigate to Google
+  await page.goto('https://www.google.com/');
 
-  // Open a new browser context (like a new tab, but with isolated cookies/storage)
-  const context = await browser.newContext();
+  // Fill the search box
+  await page.fill("//textarea[@id='APjFqb']", "Google");
+  const url = await page.url()
+  console.log("URL is: ", url);
 
-  // Create a new page in the context
-  const page = await context.newPage();
+  const title = await page.title()
+  console.log("Title is: ", title);
+  await expect(title).toBe("Google");
+  
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(3000);
+  // Go back in browser history
+  await page.goBack();
 
-  // Navigate to a URL
-  await page.goto('https://example.com');
-
-  // Perform actions on the page (if needed)
-
-  // Close the browser
-  await browser.close();
-})();
+  // Wait for 2 seconds
+  // await page.waitForTimeout(5000);
+});

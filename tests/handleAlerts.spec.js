@@ -12,6 +12,7 @@ test('Handle conform box' , async ({page}) => {
         console.log(dialogWindow.message());
         expect(dialogWindow.message()).toContain('I am a JS Confirm');
         await page.waitForTimeout(2000)
+        await page.waitUntilLoadState('networkidle');
         // await dialogWindow.accept();
         await dialogWindow.dismiss();
     });   

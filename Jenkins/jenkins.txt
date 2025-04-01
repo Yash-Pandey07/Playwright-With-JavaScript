@@ -1,0 +1,25 @@
+How To Run Playwright With Jenkins | Integrate Playwright With Jenkins
+https://youtu.be/FZ5NlP1hL9A?list=PL6flErFppaj0iQG2_Dd72Jz0bfrzZwMZH
+
+
+Step 1
+npm install
+npx playwright install
+
+Step 2
+npx playwright test tests/example.spec.js -- project=chromium -- headed
+
+Step 3 - Passing Parameters
+npx playwright test tests/%SpecFile% -- project=%Browser% -- headed
+
+add build steps on Jenkins with new item , free style project
+
+e:  (if Jenkins and project in same dir then not need this t switch dir)
+cd E:\Jenkins-Practice\Playwright-With-JavaScript
+npm install
+npx playwright install
+
+
+e:
+cd E:\Jenkins-Practice\Playwright-With-JavaScript
+npx playwright test "tests/example.spec.js" --project=chromium --headed
