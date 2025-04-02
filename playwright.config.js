@@ -30,7 +30,7 @@ export default defineConfig({
   reporter: [
     ["html", { outputFolder: "reports/html-report", open: "always" }], // HTML Reporter with configuration
     ["line"], // Line Reporter
-    ["allure-playwright"], // Allure Reporter
+    ["allure-playwright"], // Allure Reporter 
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
