@@ -8,6 +8,11 @@ test('Handle frames' , async ({page}) => {
     
     await iframe.locator("//a[text()='java.applet']").click();
 
+    await page.screenshot({path:"screenshot.png", fullPage:true});
+    
+    //specific element screenshot
+    const element = await page.locator("//h2[text()='Class Applet']").screenshot();
+
     await page.pause();
 
 })
