@@ -1,0 +1,1 @@
+Price :  locator('//span[text()=\'Apple iPhone 14 (512 GB) - Yellow\']/parent::h2/parent::a/parent::div/following-sibling::div[@class=\'puisg-row\'][1]/descendant::span[@class=\'a-price\']/child::span[@class=\'a-offscreen\']')
